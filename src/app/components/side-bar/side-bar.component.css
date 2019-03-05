@@ -1,0 +1,26 @@
+.sidebar-header {
+    width: 100px;
+    height: 75px;
+    margin: 0 0 0 60px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: #fff;
+}
+
+#sidebar ul li {
+    padding: 8px 0 8px 0;
+    display: block;
+}
+
+i {
+    margin-right: 5px;
+}
