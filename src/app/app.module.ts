@@ -5,18 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { ContactsFormComponent } from './components/contacts-form/contacts-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    SideBarComponent
+    SideBarComponent,
+    ContactsFormComponent
   ],
   imports: [
     BrowserModule,
+      ReactiveFormsModule,
     AppRoutingModule
   ],
-  exports: [SideBarComponent],
+  exports: [SideBarComponent,
+  ContactsFormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

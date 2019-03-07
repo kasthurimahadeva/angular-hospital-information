@@ -1,0 +1,77 @@
+<!-- main app container -->
+
+<form [formGroup]="contactsForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">Email is required</div>
+      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Contact Number </label>
+    <input type="text" formControlName="contactNumber"  [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }" />
+    <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback">
+      <div *ngIf="f.contactNumber.errors.required">Contact Number is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Fax</label>
+    <input type="text" formControlName="fax"  [ngClass]="{ 'is-invalid': submitted && f.fax.errors }" />
+    <div *ngIf="submitted && f.fax.errors" class="invalid-feedback">
+      <div *ngIf="f.fax.errors.required">Fax is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Website Url</label>
+    <input type="text" formControlName="url"  [ngClass]="{ 'is-invalid': submitted && f.url.errors }" />
+    <div *ngIf="submitted && f.url.errors" class="invalid-feedback">
+      <div *ngIf="f.url.errors.required">Website Url is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Highlight 1 <br> (Max 100 characters)</label>
+    <input type="text" formControlName="highlight1"  [ngClass]="{ 'is-invalid': submitted && f.highlight1.errors }" />
+    <div *ngIf="submitted && f.highlight1.errors" class="invalid-feedback">
+      <div *ngIf="f.highlight1.errors.required">Highlight 1 is required</div>
+      <div *ngIf="f.highlight1.errors.maxlength">Highlight 1 must be maximum 100 characters</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Highlight 2 <br> (Max 100 characters)</label>
+    <input type="text" formControlName="highlight2"  [ngClass]="{ 'is-invalid': submitted && f.highlight2.errors }" />
+    <div *ngIf="submitted && f.highlight2.errors" class="invalid-feedback">
+      <div *ngIf="f.highlight2.errors.required">Highlight 2 is required</div>
+      <div *ngIf="f.highlight2.errors.maxlength">Highlight 2 must be maximum 100 characters</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Highlight 3 <br> (Max 100 characters)</label>
+    <input type="text" formControlName="highlight3" [ngClass]="{ 'is-invalid': submitted && f.highlight3.errors }" />
+    <div *ngIf="submitted && f.highlight3.errors" class="invalid-feedback">
+      <div *ngIf="f.highlight3.errors.required">Highlight 3 is required</div>
+      <div *ngIf="f.highlight3.errors.maxlength">Highlight 3 must be maximum 100 characters</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" formControlName="description"  [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+      <div *ngIf="f.description.errors.required">Description is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary">Save</button>
+  </div>
+</form>
+
