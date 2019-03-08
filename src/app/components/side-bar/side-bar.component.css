@@ -1,17 +1,12 @@
 .sidebar-header {
     width: 100px;
     height: 75px;
-    margin: 0 0 0 60px;
-}
-
-.wrapper {
-    display: flex;
-    align-items: stretch;
+    margin: 0 0 0 30px;
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 15rem;
+    max-width: 15rem;
     min-height: 100vh;
     background: #fff;
 }
