@@ -1,77 +1,142 @@
 <!-- main app container -->
 
-<form [formGroup]="contactsForm" (ngSubmit)="onSubmit()">
+<form novalidate [formGroup]="contactsForm" (ngSubmit)="onSubmit()">
 
-  <div class="form-group">
-    <label>Email</label>
-    <input type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-      <div *ngIf="f.email.errors.required">Email is required</div>
-      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label justify-content-end" for="email">E-mail</label>
+        <div class="col-md-9">
+            <input class="form-control form-control-lg" id="email"
+                   type="email" formControlName="email"
+                   [ngClass]="{'is-invalid': (contactsForm.get('email').touched || contactsForm.get('email').dirty) && contactsForm.get('email').invalid}" />
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('email').errors?.required">
+                    Email is required
+                </span>
+                <span *ngIf="contactsForm.get('email').errors?.email">
+                    Enter valid email address
+                </span>
+            </span>
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Contact Number </label>
-    <input type="text" formControlName="contactNumber"  [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }" />
-    <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback">
-      <div *ngIf="f.contactNumber.errors.required">Contact Number is required</div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="contactNumber">Contact Number</label>
+        <div class="col-md-8">
+            <input class="form-control form-control-lg" id="contactNumber"
+                   type="tel" formControlName="contactNumber"
+                   [ngClass]="{'is-invalid': (contactsForm.get('contactNumber').touched || contactsForm.get('contactNumber').dirty) && contactsForm.get('contactNumber').invalid}" />
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('contactNumber').errors?.required">
+                    Contact Number is required
+                </span>
+            </span>
+        </div>
+        <div class="col-md-1">
+            <button class='btn btn-xs btn-primary-outline'>
+                <i class="far fa-trash-alt"></i><br><small>Delete</small>
+            </button>
+            <!--<button class='btn btn-xs btn-primary-outline'>-->
+                <!--<i class="fas fa-plus-circle"></i><br><small>Add</small>-->
+            <!--</button>-->
+
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Fax</label>
-    <input type="text" formControlName="fax"  [ngClass]="{ 'is-invalid': submitted && f.fax.errors }" />
-    <div *ngIf="submitted && f.fax.errors" class="invalid-feedback">
-      <div *ngIf="f.fax.errors.required">Fax is required</div>
+
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="fax">Fax</label>
+        <div class="col-md-9">
+            <input class="form-control form-control-lg" id="fax"
+                   type="text" formControlName="fax" />
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Website Url</label>
-    <input type="text" formControlName="url"  [ngClass]="{ 'is-invalid': submitted && f.url.errors }" />
-    <div *ngIf="submitted && f.url.errors" class="invalid-feedback">
-      <div *ngIf="f.url.errors.required">Website Url is required</div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="website">Website Url</label>
+        <div class="col-md-9">
+            <input class="form-control form-control-lg" id="website"
+                   type="text" formControlName="website"
+                   [ngClass]="{'is-invalid': (contactsForm.get('website').touched || contactsForm.get('website').dirty) && contactsForm.get('website').invalid}" />
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('website').errors?.required">
+                    Website Url is required
+                </span>
+            </span>
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Highlight 1 <br> (Max 100 characters)</label>
-    <input type="text" formControlName="highlight1"  [ngClass]="{ 'is-invalid': submitted && f.highlight1.errors }" />
-    <div *ngIf="submitted && f.highlight1.errors" class="invalid-feedback">
-      <div *ngIf="f.highlight1.errors.required">Highlight 1 is required</div>
-      <div *ngIf="f.highlight1.errors.maxlength">Highlight 1 must be maximum 100 characters</div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="highlight1">HighLight 1 <br> (Max 100 characters)</label>
+        <div class="col-md-9">
+            <textarea class="form-control" id="highlight1"
+                   formControlName="highlight1"
+                      [ngClass]="{'is-invalid': (contactsForm.get('highlight1').touched || contactsForm.get('highlight1').dirty) && contactsForm.get('highlight1').invalid}"></textarea>
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('highlight1').errors?.required">
+                    HighLight 1 is required
+                </span>
+                <span *ngIf="contactsForm.get('highlight1').errors?.maxlength">
+                    Highlight 1 can be maximum 100 characters
+                </span>
+            </span>
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Highlight 2 <br> (Max 100 characters)</label>
-    <input type="text" formControlName="highlight2"  [ngClass]="{ 'is-invalid': submitted && f.highlight2.errors }" />
-    <div *ngIf="submitted && f.highlight2.errors" class="invalid-feedback">
-      <div *ngIf="f.highlight2.errors.required">Highlight 2 is required</div>
-      <div *ngIf="f.highlight2.errors.maxlength">Highlight 2 must be maximum 100 characters</div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="highlight2">HighLight 2 <br> (Max 100 characters)</label>
+        <div class="col-md-9">
+            <textarea class="form-control" id="highlight2"
+                      formControlName="highlight2"
+                      [ngClass]="{'is-invalid': (contactsForm.get('highlight2').touched || contactsForm.get('highlight2').dirty) && contactsForm.get('highlight2').invalid}"></textarea>
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('highlight2').errors?.maxlength">
+                    Highlight 2 can be maximum 100 characters
+                </span>
+            </span>
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Highlight 3 <br> (Max 100 characters)</label>
-    <input type="text" formControlName="highlight3" [ngClass]="{ 'is-invalid': submitted && f.highlight3.errors }" />
-    <div *ngIf="submitted && f.highlight3.errors" class="invalid-feedback">
-      <div *ngIf="f.highlight3.errors.required">Highlight 3 is required</div>
-      <div *ngIf="f.highlight3.errors.maxlength">Highlight 3 must be maximum 100 characters</div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="highlight3">HighLight 3 <br> (Max 100 characters)</label>
+        <div class="col-md-9">
+            <textarea class="form-control" id="highlight3"
+                      formControlName="highlight3"
+                      [ngClass]="{'is-invalid': (contactsForm.get('highlight3').touched || contactsForm.get('highlight3').dirty) && contactsForm.get('highlight3').invalid}"></textarea>
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('highlight3').errors?.maxlength">
+                    Highlight 3 can be maximum 100 characters
+                </span>
+            </span>
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Description</label>
-    <input type="text" formControlName="description"  [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
-    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
-      <div *ngIf="f.description.errors.required">Description is required</div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="description"> Description <br> (Max 300 characters)</label>
+        <div class="col-md-9">
+            <textarea class="form-control" id="description"
+                      formControlName="description" rows="4"
+                      [ngClass]="{'is-invalid': (contactsForm.get('description').touched || contactsForm.get('description').dirty) && contactsForm.get('description').invalid}"></textarea>
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('description').errors?.maxlength">
+                    Description can be maximum 300 characters
+                </span>
+            </span>
+        </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <button class="btn btn-primary">Save</button>
-  </div>
+    <div class="form-group d-flex mb-2">
+        <label class="col-md-2 col-form-label" for="currency"> Currency</label>
+        <div class="col-md-9">
+            <select class="form-control" formControlName="currency" id="currency" [ngClass]="{'is-invalid': (contactsForm.get('currency').touched || contactsForm.get('currency').dirty) && contactsForm.get('currency').invalid}">
+                <option *ngFor="let currency of currencies">{{currency}}</option>
+            </select>
+            <span class="invalid-feedback">
+                <span *ngIf="contactsForm.get('currency').errors?.required">
+                    Currency is required
+                </span>
+            </span>
+        </div>
+    </div>
+
 </form>
 

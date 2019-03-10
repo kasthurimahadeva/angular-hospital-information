@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-contacts-form',
@@ -9,7 +9,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ContactsFormComponent implements OnInit {
 
   contactsForm: FormGroup;
-  submitted = false;
+  currencies = ['$ dollars US', 'LKR Rupees SL'];
+  contactNumbers  = 2;
+
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -17,26 +19,26 @@ export class ContactsFormComponent implements OnInit {
     this.contactsForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       contactNumber: ['', Validators.required],
-      fax: ['', Validators.required],
-      url: ['', Validators.required],
+      fax: [''],
+      website: ['', Validators.required],
       highlight1: ['', [Validators.required, Validators.maxLength(100)]],
-      highlight2: ['', [Validators.required, Validators.maxLength(100)]],
-      highlight3: ['', [Validators.required, Validators.maxLength(100)]],
-      description: ['', Validators.required],
+      highlight2: ['', [Validators.maxLength(100)]],
+      highlight3: ['', [Validators.maxLength(100)]],
+      description: ['', Validators.maxLength(300)],
+      currency: ['', Validators.required]
     });
   }
 
-  // convenience getter for easy access to form fields
-  get f() { return this.contactsForm.controls; }
+  onSubmit(): void {
+    console.log(JSON.stringify(this.contactsForm.value));
+  }
 
-  onSubmit() {
-    this.submitted = true;
+  addContactNumber() {
+    const control = <FormArray>this.contactsForm.controls['contactNumber'];
+  }
 
-    // stop here if form is invalid
-    if (this.contactsForm.invalid) {
-      return;
-    }
-
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.contactsForm.value));
+  removeContactNumber(i: number) {
+    const control = <FormArray>this.contactsForm.controls['contactNumber'];
+    control.removeAt(i);
   }
 }
