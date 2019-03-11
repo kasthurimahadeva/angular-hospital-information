@@ -8,6 +8,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ContactsFormComponent } from './components/contacts-form/contacts-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HospitalPhotosComponent } from './components/hospital-photos/hospital-photos.component';
+import { AccreditationsComponent } from './components/accreditations/accreditations.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HospitalPhotosComponent } from './components/hospital-photos/hospital-p
     DashboardComponent,
     SideBarComponent,
     ContactsFormComponent,
-    HospitalPhotosComponent
+    HospitalPhotosComponent,
+    AccreditationsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { HospitalPhotosComponent } from './components/hospital-photos/hospital-p
   exports: [
       SideBarComponent,
       ContactsFormComponent,
-      HospitalPhotosComponent
+      HospitalPhotosComponent,
+      AccreditationsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
