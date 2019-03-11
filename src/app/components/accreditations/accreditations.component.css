@@ -1,0 +1,14 @@
+small {
+    padding-left: 0.25rem;
+}
+
+.container {
+    width: 12.75rem;
+    height: 10rem;
+    margin: 0.5rem;
+}
+
+.container img {
+    width: 12.75rem;
+    height: 9rem;
+}
