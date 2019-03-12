@@ -1,14 +1,9 @@
-<div class="wrapper">
-  <!-- Sidebar -->
-  <nav id="sidebar">
-    <img src="assets/images/header.png" class="sidebar-header">
-    <ul>
-      <li><i class="fas fa-list-ul"></i>General Information</li>
-      <li><i class="fas fa-syringe"></i>Procedures</li>
-      <li><i class="fas fa-user-md"></i>Doctors</li>
-      <li><i class="fas fa-comment-alt"></i>Chat Room</li>
-      <li><i class="fas fa-dollar-sign"></i>Booking and Payments</li>
-    </ul>
-  </nav>
+<nav id="sidebar">
+  <img src="assets/images/header.png" class="sidebar-header">
+  <div class="active"><a class="nav-link" [routerLink]="'dashboard'"><i class="fas fa-list-ul"></i><span class="active-txt">General Information</span></a> </div>
+    <div><a class="nav-link" [routerLink]="'procedures'"><i class="fas fa-syringe"></i>Procedures</a> </div>
+    <div><a class="nav-link" [routerLink]="'doctors'"><i class="fas fa-user-md"></i>Doctors</a></div>
+    <div><a [routerLink]="'chatroom'" class="nav-link"><i class="fas fa-comment-alt"></i>Chat Room</a> </div>
+    <div><a [routerLink]="'booking'" class="nav-link"><i class="fas fa-dollar-sign"></i>Booking and Payments</a> </div>
+</nav>
 
-</div>
