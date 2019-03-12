@@ -1,0 +1,10 @@
+.fa-plus-circle {
+    color: #36a993;
+}
+
+.form-group, .add-btn{
+    margin-bottom: 1.5rem !important;
+}
+ .add-txt {
+     padding-left: 0.5rem;
+ }
