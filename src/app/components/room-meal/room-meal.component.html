@@ -4,13 +4,14 @@
     <div *ngFor="let roomType of formRoomArr.controls; let i=index"  [formGroupName]="i">
         <div class="form-group d-flex mb-2">
           <label class="col-md-1 col-form-label" for="room">Room</label>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <input class="form-control form-control-lg" id="room"
                    type="text" formControlName="room" />
           </div>
 
-          <label class="col-md-1 col-form-label" for="price">Price per night</label>
-          <div class="col-md-2">
+          <label class="col-md-2 col-form-label" for="price">Price per night</label>
+          <div class="col-md-3 right-inner-addon">
+            <span>$</span>
             <input class="form-control form-control-lg" id="price"
                    type="text" formControlName="price" />
           </div>
@@ -27,8 +28,8 @@
   <div formArrayName="mealTypes">
     <div *ngFor="let mealType of formMealArr.controls; let i=index"  [formGroupName]="i">
       <div class="form-group d-flex mb-2">
-        <label class="col-md-1 col-form-label" for="meal">Meal Name</label>
-        <div class="col-md-7">
+        <label class="col-md-2 col-form-label" for="meal">Meal Name</label>
+        <div class="col-md-9">
           <input class="form-control form-control-lg" id="meal"
                  type="text" formControlName="meal" />
         </div>

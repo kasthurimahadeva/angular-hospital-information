@@ -8,3 +8,19 @@
  .add-txt {
      padding-left: 0.5rem;
  }
+
+.right-inner-addon {
+    position: relative;
+}
+
+.right-inner-addon span {
+    position: absolute;
+    right: 0px;
+    padding: 0.75rem 2rem;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+h5 {
+    font-weight: bold;
+}
