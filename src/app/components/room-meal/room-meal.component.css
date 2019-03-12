@@ -21,6 +21,7 @@
     opacity: 0.5;
 }
 
-h5 {
+h6 {
     font-weight: bold;
+    padding-bottom: 1rem;
 }
