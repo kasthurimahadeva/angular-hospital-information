@@ -1,8 +1,43 @@
 <div class="content">
+    <div class="container">
+
+        <div class="title d-flex">
+            <h5 *ngIf="!titleEditing">{{title}}</h5>
+            <div *ngIf="titleEditing" class="d-flex">
+                <input class="form-control" #heading placeholder="Title" required>
+                <button class="btn btn-outline-primary" (click)="changeTitle(heading.value)">Edit</button>
+            </div>
+            <button class="btn btn-edit" *ngIf="!titleEditing" (click)="editTitle()"><i class="fas fa-pencil-alt"></i><span class="edit-txt">Request to change</span></button>
+        </div>
+
+        <div class="address d-flex">
+            <h6 *ngIf="!addressEditing">{{address}}</h6>
+            <div *ngIf="addressEditing" class="d-flex">
+                <input class="form-control" #address1 placeholder="Address" required>
+                <button class="btn btn-outline-primary" (click)="changeAddress(address1.value)">Edit</button>
+            </div>
+            <button class="btn btn-edit" *ngIf="!addressEditing" (click)="editAddress()"><i class="fas fa-pencil-alt"></i><span class="edit-txt">Request to change</span></button>
+        </div>
+
+    </div>
+
+    <div class="container subHeadings">
+        <h6>Hospital photos</h6>
+    </div>
     <app-hospital-photos></app-hospital-photos>
+
+    <div class="container subHeadings">
+        <h6>Contacts and description</h6>
+    </div>
     <app-contacts-form></app-contacts-form>
+
+    <div class="container subHeadings">
+        <h6>Accreditations</h6>
+    </div>
     <app-accreditations></app-accreditations>
     <app-room-meal></app-room-meal>
+
+    <button class="btn btn-primary float-right">Save</button>
 </div>
 
 
