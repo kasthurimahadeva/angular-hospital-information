@@ -1,0 +1,45 @@
+<form [formGroup]="roomMealForm">
+  <div formArrayName="roomTypes">
+    <h5>Room types</h5>
+    <div *ngFor="let roomType of formRoomArr.controls; let i=index"  [formGroupName]="i">
+        <div class="form-group d-flex mb-2">
+          <label class="col-md-1 col-form-label" for="room">Room</label>
+          <div class="col-md-4">
+            <input class="form-control form-control-lg" id="room"
+                   type="text" formControlName="room" />
+          </div>
+
+          <label class="col-md-1 col-form-label" for="price">Price per night</label>
+          <div class="col-md-2">
+            <input class="form-control form-control-lg" id="price"
+                   type="text" formControlName="price" />
+          </div>
+          <button type="button" class="btn" (click)="deleteRoomType(i)" *ngIf="formRoomArr.controls.length > 1" >
+            <i class="far fa-trash-alt fa-xs"></i><br><small>Delete</small>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  <button type="button" class="btn add-btn" (click)="addNewRoomType()"><i class="fas fa-plus-circle"></i><span class="add-txt">Add new room type</span></button>
+
+  <h5>Meal types</h5>
+  <div formArrayName="mealTypes">
+    <div *ngFor="let mealType of formMealArr.controls; let i=index"  [formGroupName]="i">
+      <div class="form-group d-flex mb-2">
+        <label class="col-md-1 col-form-label" for="meal">Meal Name</label>
+        <div class="col-md-7">
+          <input class="form-control form-control-lg" id="meal"
+                 type="text" formControlName="meal" />
+        </div>
+
+        <button type="button" class="btn" (click)="deleteMealType(i)" *ngIf="formMealArr.controls.length > 1" >
+          <i class="far fa-trash-alt fa-xs"></i><br><small>Delete</small>
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <button type="button" class="btn add-btn" (click)="addNewMealType()"><i class="fas fa-plus-circle"></i><span class="add-txt">Add new meal type</span></button>
+
+</form>

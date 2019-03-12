@@ -9,6 +9,7 @@ import { ContactsFormComponent } from './components/contacts-form/contacts-form.
 import {ReactiveFormsModule} from '@angular/forms';
 import { HospitalPhotosComponent } from './components/hospital-photos/hospital-photos.component';
 import { AccreditationsComponent } from './components/accreditations/accreditations.component';
+import { RoomMealComponent } from './components/room-meal/room-meal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AccreditationsComponent } from './components/accreditations/accreditati
     SideBarComponent,
     ContactsFormComponent,
     HospitalPhotosComponent,
-    AccreditationsComponent
+    AccreditationsComponent,
+    RoomMealComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { AccreditationsComponent } from './components/accreditations/accreditati
       SideBarComponent,
       ContactsFormComponent,
       HospitalPhotosComponent,
-      AccreditationsComponent
+      AccreditationsComponent,
+      RoomMealComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
