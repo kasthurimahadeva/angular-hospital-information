@@ -1,6 +1,6 @@
 <!-- main app container -->
 
-<form novalidate [formGroup]="contactsForm" (ngSubmit)="onSubmit()">
+<form novalidate [formGroup]="contactsForm">
 
     <div class="form-group d-flex mb-2">
         <label class="col-md-2 col-form-label justify-content-end" for="email">E-mail</label>
@@ -19,26 +19,27 @@
         </div>
     </div>
 
-    <div class="form-group d-flex mb-2">
-        <label class="col-md-2 col-form-label" for="contactNumber">Contact Number</label>
-        <div class="col-md-8">
-            <input class="form-control form-control-lg" id="contactNumber"
-                   type="tel" formControlName="contactNumber"
-                   [ngClass]="{'is-invalid': (contactsForm.get('contactNumber').touched || contactsForm.get('contactNumber').dirty) && contactsForm.get('contactNumber').invalid}" />
-            <span class="invalid-feedback">
-                <span *ngIf="contactsForm.get('contactNumber').errors?.required">
-                    Contact Number is required
-                </span>
-            </span>
-        </div>
-        <div class="col-md-1">
-            <button class='btn btn-xs btn-primary-outline'>
-                <i class="far fa-trash-alt"></i><br><small>Delete</small>
-            </button>
-            <!--<button class='btn btn-xs btn-primary-outline'>-->
-                <!--<i class="fas fa-plus-circle"></i><br><small>Add</small>-->
-            <!--</button>-->
+    <div formArrayName="contactNumbers">
+        <div *ngFor="let contactNumber of formArr.controls; let i=index"  [formGroupName]="i">
+            <div class="form-group d-flex mb-2">
+                <label class="col-md-2 col-form-label" for="contactNumber">Contact Number</label>
+                <div class="col-md-8">
+                    <input class="form-control form-control-lg" id="contactNumber"
+                           type="tel" formControlName="contactNumber">
+                    <small *ngIf="(formArr.controls[i].controls.contactNumber.touched || formArr.controls[i].controls.contactNumber.dirty) && formArr.controls[i].controls.contactNumber.invalid" class="text-danger">
+                        Contact Number is required
+                    </small>
+                </div>
+                <div class="col-md-1">
+                    <button class='btn btn-xs btn-primary-outline' *ngIf="formArr.controls.length - 1 > i" (click)="removeContactNumber(i)">
+                        <i class="far fa-trash-alt"></i><br><small>Delete</small>
+                    </button>
+                    <button class='btn btn-xs btn-primary-outline' *ngIf="i === formArr.controls.length - 1" (click)="addNewContactNumber()">
+                        <i class="fas fa-plus-circle"></i><br><small>Add</small>
+                    </button>
 
+                </div>
+            </div>
         </div>
     </div>
 
@@ -137,6 +138,8 @@
             </span>
         </div>
     </div>
+
+    <button class="btn btn-primary" (click)="onSubmit()" [disabled]="contactsForm.invalid">Submit</button>
 
 </form>
 

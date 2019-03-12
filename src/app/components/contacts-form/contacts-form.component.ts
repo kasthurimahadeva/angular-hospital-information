@@ -18,7 +18,7 @@ export class ContactsFormComponent implements OnInit {
   ngOnInit() {
     this.contactsForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      contactNumber: ['', Validators.required],
+      contactNumbers: this.formBuilder.array([this.initContactNumber()]),
       fax: [''],
       website: ['', Validators.required],
       highlight1: ['', [Validators.required, Validators.maxLength(100)]],
@@ -29,16 +29,26 @@ export class ContactsFormComponent implements OnInit {
     });
   }
 
+    get formArr() {
+        return this.contactsForm.get('contactNumbers') as FormArray;
+    }
+
+    initContactNumber() {
+        return this.formBuilder.group({
+            // list all your form controls here, which belongs to your form array
+            contactNumber: ['', Validators.required]
+        });
+    }
+
+    addNewContactNumber() {
+        this.formArr.push(this.initContactNumber());
+    }
+
+    removeContactNumber(index: number) {
+        this.formArr.removeAt(index);
+    }
+
   onSubmit(): void {
     console.log(JSON.stringify(this.contactsForm.value));
-  }
-
-  addContactNumber() {
-    const control = <FormArray>this.contactsForm.controls['contactNumber'];
-  }
-
-  removeContactNumber(i: number) {
-    const control = <FormArray>this.contactsForm.controls['contactNumber'];
-    control.removeAt(i);
   }
 }
