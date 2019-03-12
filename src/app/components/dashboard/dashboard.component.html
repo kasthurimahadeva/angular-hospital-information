@@ -29,7 +29,7 @@
     <div class="container subHeadings">
         <h6>Contacts and description</h6>
     </div>
-    <app-contacts-form></app-contacts-form>
+    <app-contacts-form #contacts></app-contacts-form>
 
     <div class="container subHeadings">
         <h6>Accreditations</h6>
@@ -37,7 +37,7 @@
     <app-accreditations></app-accreditations>
     <app-room-meal></app-room-meal>
 
-    <button class="btn btn-primary float-right">Save</button>
+    <button class="btn btn-primary float-right" [disabled]="contacts.contactsForm.invalid">Save</button>
 </div>
 
 
