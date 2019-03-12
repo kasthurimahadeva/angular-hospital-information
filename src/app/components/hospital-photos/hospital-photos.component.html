@@ -1,50 +1,8 @@
 <div class="d-flex flex-wrap">
-  <div class="container">
-    <img src="assets/images/hospital-image-1.jpg" />
+  <div class="container" *ngFor="let photo of photos let i = index">
+    <img src="assets/images/hospital-image-{{photo}}.jpg" alt="hospital image"/>
     <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
-  </div>
-
-  <div class="container">
-    <img src="assets/images/hospital-image-2.jpg" />
-    <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
-  </div>
-
-  <div class="container">
-    <img src="assets/images/hospital-image-4.jpg" />
-    <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
-  </div>
-
-  <div class="container">
-    <img src="assets/images/hospital-image-6.jpg" />
-    <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
-  </div>
-
-  <div class="container">
-    <img src="assets/images/hospital-image-5.jpg" />
-    <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
-  </div>
-
-  <div class="container">
-    <img src="assets/images/hospital-image-3.jpg" />
-    <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
-  </div>
-
-  <div class="container">
-    <img src="assets/images/hospital-image-5.jpg" />
-    <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
-  </div>
-
-  <div class="container">
-    <img src="assets/images/hospital-image-1.jpg" />
-    <div class="overlay"></div>
-    <button class="btn delete-btn"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
+    <button class="btn delete-btn" (click)="removeImage(i)"><i class="far fa-trash-alt"></i><span class="delete-txt">Delete</span></button>
   </div>
 
   <div class="container">
