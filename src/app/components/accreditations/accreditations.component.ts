@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccreditationsComponent implements OnInit {
 
-  accreditations = [1, 2, 3, 4, 5, 6];
+  adding = false;
+  accreditations = ['Name of the accreditation', 'Long name of the accreditation that takes several strokes',
+    'Long name of the accreditation', 'Name of the accreditation Accreditation on moderation',
+    'Name of the accreditation', 'Long name of the accreditation'];
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +21,11 @@ export class AccreditationsComponent implements OnInit {
   }
 
   addAccreditation(): void {
-    this.accreditations.push(1);
+    this.adding = true;
+  }
+
+  add(accreditation: String) {
+    this.accreditations.push(accreditation);
+    this.adding = false;
   }
 }

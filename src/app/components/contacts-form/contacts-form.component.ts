@@ -12,7 +12,6 @@ export class ContactsFormComponent implements OnInit {
   currencies = ['$ dollars US', 'LKR Rupees SL'];
   contactNumbers  = 2;
 
-
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {

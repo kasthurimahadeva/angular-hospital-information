@@ -1,14 +1,21 @@
 <div class="d-flex flex-wrap">
   <div class="container" *ngFor="let accreditation of accreditations let i=index">
     <img src="assets/images/accreditation.jpg">
-    <!--<div class="description">Name of the accreditation</div>-->
+    <div class="description">{{accreditation}}</div>
     <button class="btn" (click)="removeAccreditation(i)"><i class="far fa-trash-alt fa-ms"></i><small>Delete</small></button>
   </div>
 
   <div class="container">
-    <button class="btn add-btn" (click)="addAccreditation()">
+    <button class="btn add-btn" *ngIf="!adding" (click)="addAccreditation()">
       <i class="fas fa-plus-circle fa-2x"></i><br>Add accreditation
     </button>
+    <div *ngIf="adding">
+      <img src="assets/images/accreditation.jpg">
+      <div class="d-flex">
+        <textarea class="form-control"  #accreditation placeholder="Accreditation" required></textarea>
+        <button class="btn" (click)="add(accreditation.value)"><i class="fas fa-check-circle fa-2x"></i></button>
+      </div>
+    </div>
   </div>
 
 </div>
