@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeTitle(title: String) {
+  changeTitle(title: string) {
     this.title = title;
     this.titleEditing = false;
   }
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     this.titleEditing = true;
   }
 
-  changeAddress(address: String) {
+  changeAddress(address: string) {
     this.address = address;
     this.addressEditing = false;
   }

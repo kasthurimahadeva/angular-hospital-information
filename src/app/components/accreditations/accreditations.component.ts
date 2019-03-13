@@ -24,7 +24,7 @@ export class AccreditationsComponent implements OnInit {
     this.adding = true;
   }
 
-  add(accreditation: String) {
+  add(accreditation: string) {
     this.accreditations.push(accreditation);
     this.adding = false;
   }
