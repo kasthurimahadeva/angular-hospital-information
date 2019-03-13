@@ -13,7 +13,10 @@
       <img src="assets/images/accreditation.jpg">
       <div class="d-flex">
         <textarea class="form-control"  #accreditation placeholder="Accreditation" required></textarea>
-        <button class="btn" (click)="add(accreditation.value)"><i class="fas fa-check-circle fa-2x"></i></button>
+        <div>
+          <button class="btn" (click)="add(accreditation.value)"><i class="fas fa-check-circle fa-2x"></i></button>
+          <button class="btn" (click)="remove()"><i class="fas fa-times-circle fa-2x"></i></button>
+        </div>
       </div>
     </div>
   </div>

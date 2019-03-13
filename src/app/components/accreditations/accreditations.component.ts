@@ -28,4 +28,8 @@ export class AccreditationsComponent implements OnInit {
     this.accreditations.push(accreditation);
     this.adding = false;
   }
+
+  remove() {
+    this.adding = false;
+  }
 }

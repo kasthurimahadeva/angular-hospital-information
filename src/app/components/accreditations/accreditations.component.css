@@ -30,3 +30,7 @@ small {
     margin-bottom: 0.5rem;
     margin-top: 0.1rem;
 }
+
+.fa-times-circle {
+    color: #a00000;
+}

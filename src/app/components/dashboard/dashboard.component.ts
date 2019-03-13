@@ -33,4 +33,12 @@ export class DashboardComponent implements OnInit {
   editAddress(): void {
     this.addressEditing = true;
   }
+
+    cancelTitleEditing() {
+        this.titleEditing = false;
+    }
+
+    cancelAddressEditing() {
+        this.addressEditing = false;
+    }
 }
